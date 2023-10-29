@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>file_save_icon.png</file>
+        <file>file_open_icon.png</file>
+        <file>add_icon.png</file>
+        <file>save_icon.png</file>
+        <file>data_analysis.png</file>
+        <file>warning.png</file>
+        <file>error_icon.png</file>
+    </qresource>
+</RCC>
