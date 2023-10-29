@@ -25,6 +25,9 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    bool showWarningMessage(const QString& warningMessage);
+    void showErrorMessage(const QString& errorMessage);
+    void showOutputDataMessage(const QString& dataMessage);
     bool isTableCompletelyFilled();
     void createTableContextMenu(const QPoint& pos);
     void setDateToTable(int rowIndex);
@@ -33,11 +36,9 @@ public:
     void setHumidityToTable(int rowIndex);
     void setWindDirectionToTable(int rowIndex);
     void deleteRow(int rowIndex);
-    void readWeatherLineFromFile(QTextStream& in);
-    void writeWeatherTableToFile(QTextStream& out);
-    std::vector<CWather> getWeatherArrByPeriod(bool& isSuccess);
-    void displayWeatherPeriods(std::vector<std::vector<CWather>> periodsArr);
-    QTableWidget* createWeatherTable(std::vector<CWather> weatherArr);
+    CWather getWeatherPeriod(bool& isSuccess);
+    void displayWeatherPeriods(std::vector<CWather> periodsArr);
+    QTableWidget* createWeatherTable(CWather weather);
 
 
 
@@ -68,7 +69,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    std::vector<CWather> weatherArr;
+    CWather mainWeather;
 
     void setCellText(QTableWidget* table, const int rowIndex, const int columnIndex, const QString& text);
     QDialog* createDialog(const QString& windowTitle, const int& width, const int& height);

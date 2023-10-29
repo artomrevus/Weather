@@ -10,50 +10,67 @@ using date = std::tuple<unsigned, Month, int>;
 
 class CWather
 {
-
 public:
+
     CWather();
-    CWather(int year, Month month, unsigned day,
-            int temperature, unsigned pressure, int humidity, WindDirection windDirection);
+    CWather(QTableWidget * weatherTable, const int& rowCount);
     CWather(const CWather& weather);
+    CWather& operator=(const CWather& other);
+
     ~CWather();
 
-    friend void selectionSortByPressure(std::vector<CWather>& weatherArr, int startIndex, int endIndex);
-    friend void sortPressureBySeason(std::vector<CWather>& weatherArr);
-    friend void completeTable(const std::vector<CWather>& weatherArr, QTableWidget * weatherTable);
-    friend void buildWeatherGraph(const std::vector<CWather>& weatherArr, std::function<int(int)> getWeatherData, const QString& graphTitle);
-    friend std::vector<std::vector<unsigned>> findDaysWindNotChange(std::vector<CWather>& weatherArr);
-    friend double getAvgTemperature(const std::vector<CWather>& weatherArr);
-    friend double getAvgPressure(const std::vector<CWather>& weatherArr);
-    friend std::vector<QDate> getHighestHumidityDays(const std::vector<CWather>& findHighestHumArr);
-    friend std::vector<std::vector<CWather>> findPeriodTemperatureAndPressureChangeWithinRange(const std::vector<CWather>& weatherArr,
-                                                                double temperatureRangePct, double pressureRangePct);
+    void selectionSortByPressure(int startIndex, int endIndex);
+    void sortPressureBySeason();
+    void completeTable(QTableWidget* weatherTable);
+    void buildWeatherGraph(std::function<int(int)> getWeatherData, const QString& graphTitle);
+    std::vector<std::vector<unsigned>> findDaysWindNotChange();
+    double getAvgTemperature();
+    double getAvgPressure();
+    std::vector<QDate> getHighestHumidityDays();
+    std::vector<CWather> findPeriodTemperatureAndPressureChangeWithinRange(double tRangePct, double psreRangePct);
+    CWather getWeatherByPeriod(QDate startDate, QDate endDate);
 
 
    // void ForecastWeatherNextMonth(std::vector<CWather>& weather);
 
     // Перевизначення операції >> для зчитування з файлу
-    friend QTextStream& operator>>(QTextStream& in, CWather& WeatherData);
+    friend QTextStream& operator>>(QTextStream& inFile, CWather &weather);
 
      // Перевизначення операції >> для запису у файл.
-    friend QTextStream& operator<<(QTextStream& out, const CWather& WeatherData);
+    friend QTextStream& operator<<(QTextStream& out, const CWather& weather);
 
-    int temperature() const;
-    unsigned int pressure() const;
-    int humidity() const;
-    int year() const;
-    Month month() const;
-    unsigned int day() const;
-    WindDirection windDirection() const;
+    int getWeatherSize();
+    int getTemperature(int index);
+    unsigned getPressure(int index);
+    int getHumidity(int index);
 
 private:
-    int m_year;
-    Month m_month;
-    unsigned m_day;
-    int m_temperature;
-    unsigned m_pressure;
-    int m_humidity;
-    WindDirection m_windDirection;
+    struct weatherData
+    {
+        int m_year;
+        Month m_month;
+        unsigned m_day;
+        int m_temperature;
+        unsigned m_pressure;
+        int m_humidity;
+        WindDirection m_windDirection;
+
+        weatherData
+        ():
+        m_year(0), m_month(Month::Unknown), m_day(0),
+        m_temperature(0), m_pressure(0), m_humidity(0), m_windDirection(WindDirection::Undefined)
+        {}
+
+        weatherData
+        (int year, Month month, unsigned int day, int temperature, unsigned int pressure, int humidity, WindDirection windDirection):
+        m_year(year), m_month(month), m_day(day), m_temperature(temperature), m_pressure(pressure),
+        m_humidity(humidity), m_windDirection(windDirection)
+        {}
+    };
+
+    std::vector<weatherData> weatherArr;
+
+    void pushWeatherDataEnd(const weatherData& wData);
 };
 
 
