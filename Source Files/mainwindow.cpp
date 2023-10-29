@@ -636,3 +636,17 @@ void MainWindow::on_actionFind_days_while_pressure_2_5_triggered()
     displayWeatherPeriods(periodsArr);
 }
 
+
+void MainWindow::on_actionForecast_weathe_for_next_month_triggered()
+{
+    QString warningMessage = "You did not save all the changes you made. Do you want to continue forecasting weather?";
+    if(statusBar()->currentMessage() == "Not all changes are saved )=" && !showWarningMessage(warningMessage)){
+        return;
+    }
+
+    mainWeather.forecastWeatherForNextMonth();
+    mainWeather.completeTable(ui->weatherTable);
+
+    showOutputDataMessage("The weather for the next month has been successfully predicted and added to the table.");
+}
+

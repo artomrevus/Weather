@@ -67,6 +67,8 @@ private slots:
 
     void on_actionFind_days_while_pressure_2_5_triggered();
 
+    void on_actionForecast_weathe_for_next_month_triggered();
+
 private:
     Ui::MainWindow *ui;
     CWather mainWeather;

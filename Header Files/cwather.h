@@ -29,9 +29,7 @@ public:
     std::vector<QDate> getHighestHumidityDays();
     std::vector<CWather> findPeriodTemperatureAndPressureChangeWithinRange(double tRangePct, double psreRangePct);
     CWather getWeatherByPeriod(QDate startDate, QDate endDate);
-
-
-   // void ForecastWeatherNextMonth(std::vector<CWather>& weather);
+    void forecastWeatherForNextMonth();
 
     // Перевизначення операції >> для зчитування з файлу
     friend QTextStream& operator>>(QTextStream& inFile, CWather &weather);
@@ -76,6 +74,8 @@ private:
 
 Season getSeason(int month);
 bool isSeasonChanged(int month1, int year1, int month2, int year2);
+int getNumDaysInMonth(Month month, int year);
+Month getNextMonth(Month currentMonth);
 WindDirection convertTextToWindDir(QString text);
 QString convertWindDirToText(WindDirection direction);
 double getPercentageOf(double digit);

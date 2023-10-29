@@ -261,6 +261,108 @@ CWather CWather::getWeatherByPeriod(QDate startDate, QDate endDate)
 }
 
 
+void CWather::forecastWeatherForNextMonth()
+{
+    int lastElIndex = weatherArr.size() - 1;
+
+    Month month = getNextMonth(weatherArr[lastElIndex].m_month);
+    int year = month == Month::January ? weatherArr[lastElIndex].m_year + 1 : weatherArr[lastElIndex].m_year;
+    int temperature;
+    unsigned pressure;
+    int humidity;
+    WindDirection windDirection;
+
+    for (int day = 1; day <= getNumDaysInMonth(month, year); ++day)
+    {
+        if(month == Month::December)
+        {
+            temperature = QRandomGenerator::global()->bounded(-5, 6);
+            pressure = QRandomGenerator::global()->bounded(770, 781);
+            humidity = QRandomGenerator::global()->bounded(30, 41);
+            windDirection = static_cast<WindDirection>(QRandomGenerator::global()->bounded(1, 9));
+        }
+        else if(month == Month::January)
+        {
+            temperature = QRandomGenerator::global()->bounded(-10, 1);
+            pressure = QRandomGenerator::global()->bounded(780, 791);
+            humidity = QRandomGenerator::global()->bounded(20, 31);
+            windDirection = static_cast<WindDirection>(QRandomGenerator::global()->bounded(1, 9));
+        }
+        else if(month == Month::February)
+        {
+            temperature = QRandomGenerator::global()->bounded(0, 11);
+            pressure = QRandomGenerator::global()->bounded(760, 771);
+            humidity = QRandomGenerator::global()->bounded(30, 46);
+            windDirection = static_cast<WindDirection>(QRandomGenerator::global()->bounded(1, 9));
+        }
+        else if(month == Month::March)
+        {
+            temperature = QRandomGenerator::global()->bounded(10, 16);
+            pressure = QRandomGenerator::global()->bounded(750, 761);
+            humidity = QRandomGenerator::global()->bounded(45, 56);
+            windDirection = static_cast<WindDirection>(QRandomGenerator::global()->bounded(1, 9));
+        }
+        else if(month == Month::April)
+        {
+            temperature = QRandomGenerator::global()->bounded(16, 21);
+            pressure = QRandomGenerator::global()->bounded(740, 751);
+            humidity = QRandomGenerator::global()->bounded(55, 66);
+            windDirection = static_cast<WindDirection>(QRandomGenerator::global()->bounded(1, 9));
+        }
+        else if(month == Month::May){
+            temperature = QRandomGenerator::global()->bounded(20, 26);
+            pressure = QRandomGenerator::global()->bounded(730, 741);
+            humidity = QRandomGenerator::global()->bounded(65, 71);
+            windDirection = static_cast<WindDirection>(QRandomGenerator::global()->bounded(1, 9));
+        }
+        else if(month == Month::June)
+        {
+            temperature = QRandomGenerator::global()->bounded(20, 31);
+            pressure = QRandomGenerator::global()->bounded(721, 731);
+            humidity = QRandomGenerator::global()->bounded(65, 76);
+            windDirection = static_cast<WindDirection>(QRandomGenerator::global()->bounded(1, 9));
+        }
+        else if(month == Month::July)
+        {
+            temperature = QRandomGenerator::global()->bounded(25, 36);
+            pressure = QRandomGenerator::global()->bounded(710, 721);
+            humidity = QRandomGenerator::global()->bounded(70, 81);
+            windDirection = static_cast<WindDirection>(QRandomGenerator::global()->bounded(1, 9));
+        }
+        else if(month == Month::August)
+        {
+            temperature = QRandomGenerator::global()->bounded(20, 31);
+            pressure = QRandomGenerator::global()->bounded(721, 731);
+            humidity = QRandomGenerator::global()->bounded(62, 76);
+            windDirection = static_cast<WindDirection>(QRandomGenerator::global()->bounded(1, 9));
+        }
+        else if(month == Month::September)
+        {
+            temperature = QRandomGenerator::global()->bounded(15, 21);
+            pressure = QRandomGenerator::global()->bounded(736, 751);
+            humidity = QRandomGenerator::global()->bounded(60, 71);
+            windDirection = static_cast<WindDirection>(QRandomGenerator::global()->bounded(1, 9));
+        }
+        else if(month == Month::October)
+        {
+            temperature = QRandomGenerator::global()->bounded(10, 16);
+            pressure = QRandomGenerator::global()->bounded(751, 766);
+            humidity = QRandomGenerator::global()->bounded(50, 61);
+            windDirection = static_cast<WindDirection>(QRandomGenerator::global()->bounded(1, 9));
+        }
+        else if(month == Month::November)
+        {
+            temperature = QRandomGenerator::global()->bounded(5, 11);
+            pressure = QRandomGenerator::global()->bounded(760, 771);
+            humidity = QRandomGenerator::global()->bounded(40, 51);
+            windDirection = static_cast<WindDirection>(QRandomGenerator::global()->bounded(1, 9));
+        }
+
+        weatherArr.push_back(weatherData(year, month, day, temperature, pressure, humidity, windDirection));
+    }
+}
+
+
 int CWather::getWeatherSize()
 {
     return weatherArr.size();
@@ -412,3 +514,43 @@ double getPercentageOf(double digit)
     return digit / 100;
 }
 
+
+int getNumDaysInMonth(Month month, int year)
+{
+    switch (month)
+    {
+    case Month::January:
+    case Month::March:
+    case Month::May:
+    case Month::July:
+    case Month::August:
+    case Month::October:
+    case Month::December:
+        return 31;
+
+    case Month::April:
+    case Month::June:
+    case Month::September:
+    case Month::November:
+        return 30;
+
+    case Month::February:
+        if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) {
+            return 29;
+        } else {
+            return 28;
+        }
+
+    default:
+        return 0; // Невідомий місяць
+    }
+}
+
+
+Month getNextMonth(Month currentMonth) {
+    if (currentMonth == Month::December) {
+        return Month::January;
+    } else {
+        return static_cast<Month>(static_cast<int>(currentMonth) + 1);
+    }
+}
