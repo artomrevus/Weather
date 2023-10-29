@@ -141,8 +141,8 @@
   </widget>
   <action name="actionOpen">
    <property name="icon">
-    <iconset resource="resource.qrc">
-     <normaloff>:/file_open_icon.png</normaloff>:/file_open_icon.png</iconset>
+    <iconset resource="../resource.qrc">
+     <normaloff>:/Resource Files/Resource Files/file_open_icon.png</normaloff>:/Resource Files/Resource Files/file_open_icon.png</iconset>
    </property>
    <property name="text">
     <string>Open...</string>
@@ -153,8 +153,8 @@
   </action>
   <action name="actionSave">
    <property name="icon">
-    <iconset resource="resource.qrc">
-     <normaloff>:/file_save_icon.png</normaloff>:/file_save_icon.png</iconset>
+    <iconset resource="../resource.qrc">
+     <normaloff>:/Resource Files/Resource Files/file_save_icon.png</normaloff>:/Resource Files/Resource Files/file_save_icon.png</iconset>
    </property>
    <property name="text">
     <string>Save...</string>
@@ -210,8 +210,8 @@
   </action>
   <action name="actionAdd_row">
    <property name="icon">
-    <iconset resource="resource.qrc">
-     <normaloff>:/add_icon.png</normaloff>:/add_icon.png</iconset>
+    <iconset resource="../resource.qrc">
+     <normaloff>:/Resource Files/Resource Files/add_icon.png</normaloff>:/Resource Files/Resource Files/add_icon.png</iconset>
    </property>
    <property name="text">
     <string>Add row</string>
@@ -222,8 +222,8 @@
   </action>
   <action name="actionSave_changes">
    <property name="icon">
-    <iconset resource="resource.qrc">
-     <normaloff>:/save_icon.png</normaloff>:/save_icon.png</iconset>
+    <iconset resource="../resource.qrc">
+     <normaloff>:/Resource Files/Resource Files/save_icon.png</normaloff>:/Resource Files/Resource Files/save_icon.png</iconset>
    </property>
    <property name="text">
     <string>Save changes</string>
@@ -234,7 +234,7 @@
   </action>
  </widget>
  <resources>
-  <include location="resource.qrc"/>
+  <include location="../resource.qrc"/>
  </resources>
  <connections/>
 </ui>

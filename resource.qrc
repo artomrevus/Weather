@@ -1,11 +1,12 @@
 <RCC>
-    <qresource prefix="/">
-        <file>file_save_icon.png</file>
-        <file>file_open_icon.png</file>
-        <file>add_icon.png</file>
-        <file>save_icon.png</file>
-        <file>data_analysis.png</file>
-        <file>warning.png</file>
-        <file>error_icon.png</file>
+    <qresource prefix="/"/>
+    <qresource prefix="/Resource Files">
+        <file>Resource Files/add_icon.png</file>
+        <file>Resource Files/data_analysis.png</file>
+        <file>Resource Files/error_icon.png</file>
+        <file>Resource Files/file_open_icon.png</file>
+        <file>Resource Files/file_save_icon.png</file>
+        <file>Resource Files/save_icon.png</file>
+        <file>Resource Files/warning.png</file>
     </qresource>
 </RCC>

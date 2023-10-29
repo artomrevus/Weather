@@ -14,19 +14,19 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 find_package(Qt6 REQUIRED COMPONENTS Charts)
 
 set(PROJECT_SOURCES
-        main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
+        ./Source\ Files/main.cpp
+        ./Source\ Files/mainwindow.cpp
+        ./Header\ Files/mainwindow.h
+        ./Source\ Files/mainwindow.ui
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Weather
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        cwather.h
-        cwather.cpp
-        WeatherEnums.h
+        ./Header\ Files/cwather.h
+        ./Source\ Files/cwather.cpp
+        ./Header\ Files/WeatherEnums.h
         resource.qrc
     )
 # Define target properties for Android with Qt 6 as:
