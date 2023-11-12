@@ -1,10 +1,10 @@
-# Weather
+# Weather:sunny::cloud:
 
 Weather is a simple and convenient application for working with weather data. It is built using Qt and allows you to enter and view weather data, as well as perform various actions with this data (graphing, sorting, forecasting, etc.).
 
 ## Content
 
-- [Weather](#weather)
+- [Weather:sunny::cloud:](#weathersunnycloud)
   - [Content](#content)
   - [Installation](#installation)
   - [Usage](#usage)
@@ -30,7 +30,7 @@ Weather is a simple and convenient application for working with weather data. It
 
 ## Functional features
 
-- **Edit a table:**
+- **Edit a table :clipboard: :**
   - Edit data using the table context menu.
   - Add data to the table.
   - Delete data from the table.
@@ -39,18 +39,18 @@ Weather is a simple and convenient application for working with weather data. It
   - Write weather data to a file.
 - **Sorting table records.**
   
-- **Determining the days during which the wind direction did not change.**
+- **Determining the days during which the wind direction did not change.:cyclone:**
   
-- **By a user-defined period, definition:**
+- **By a user-defined period :calendar:, definition:**
   - The average temperature during this period.
   - Days with the highest humidity during this period.
-- **Finding the periods when the pressure and temperature changed within certain limits.**
+- **Finding the periods when the pressure and temperature changed within certain limits.:mag_right:**
   
-- **Building graphs:**
+- **Building graphs :bar_chart: :**
   - Temperature.
   - Pressure.
   - Humidity.
-- **Weather forecasting for the next month.**
+- **Weather forecasting for the next month.:calendar:**
 
 ## About the author
 
