@@ -1,6 +1,9 @@
 #ifndef WEATHERENUMS_H
 #define WEATHERENUMS_H
 
+
+/** This enum allows you to easily work with months by using clear and convenient identifiers, such as January, February,
+and so on, instead of numeric values. You can use this enumeration to work with months in applications that require date information. */
 enum Month
 {
     January = 1,
@@ -19,6 +22,9 @@ enum Month
 };
 
 
+/** This enumeration makes it easy to identify and represent different wind directions in an application using clear identifiers
+such as North, South, East, and others. You can use this enumeration to conveniently handle wind direction data in weather-related
+applications or other situations where wind direction is important. */
 enum WindDirection
 {
     North = 1,
@@ -33,6 +39,9 @@ enum WindDirection
 };
 
 
+/** This enumeration makes it easy to identify and represent different seasons in applications with clear identifiers such as
+Winter, Spring, Summer, and Autumn. You can use this enumeration to conveniently process season-related data in weather-related
+applications, calendars, or other situations where it is important to take seasonal changes into account.*/
 enum Season
 {
     Winter = 1,
