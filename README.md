@@ -6,12 +6,12 @@ Weather is a simple and convenient application for working with weather data. It
 
 - [Weather:sunny::cloud:](#weathersunnycloud)
   - [Content](#content)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Functional features](#functional-features)
-  - [About the author](#about-the-author)
+  - [Installation:inbox\_tray:](#installationinbox_tray)
+  - [Usage:open\_hands:](#usageopen_hands)
+  - [Functional features:octocat:](#functional-featuresoctocat)
+  - [About the author:speech\_balloon:](#about-the-authorspeech_balloon)
 
-## Installation
+## Installation:inbox_tray:
 
 1. **Clone the repository:**
    ```bash
@@ -20,7 +20,7 @@ Weather is a simple and convenient application for working with weather data. It
 3. **Launch Qt Creator and open a project.**
 4. **Сonfigure and build the project.:hammer:**
   
-## Usage
+## Usage:open_hands:
 
 1. **Launch the application:**
  - Run the compiled version or build from source.
@@ -28,7 +28,7 @@ Weather is a simple and convenient application for working with weather data. It
 - Add weather data by filling it in from a text file or directly in the app.
 3. **Interact with the application.**
 
-## Functional features
+## Functional features:octocat:
 
 - **Edit a table :clipboard: :**
   - Edit data using the table context menu.
@@ -52,7 +52,7 @@ Weather is a simple and convenient application for working with weather data. It
   - Humidity.
 - **Weather forecasting for the next month.:calendar:**
 
-## About the author
+## About the author:speech_balloon:
 
 - Artom Revus:
   - GitHub: [artomrevus](https://github.com/artomrevus)
