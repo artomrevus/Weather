@@ -18,7 +18,7 @@ Weather is a simple and convenient application for working with weather data. It
    git clone https://github.com/artomrevus/Weather.git
 2. **Download Qt Creator version 6.1 or higher (if not already installed).**
 3. **Launch Qt Creator and open a project.**
-4. **Сonfigure and build the project.**
+4. **Сonfigure and build the project.:hammer:**
   
 ## Usage
 
@@ -34,7 +34,7 @@ Weather is a simple and convenient application for working with weather data. It
   - Edit data using the table context menu.
   - Add data to the table.
   - Delete data from the table.
-- **Work with text files:**
+- **Work with text files :floppy_disk: :**
   - Reads weather data from a file.
   - Write weather data to a file.
 - **Sorting table records.**
